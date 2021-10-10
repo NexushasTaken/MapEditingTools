@@ -4,6 +4,7 @@ namespace MapEditingTools
 {
     public class Quaternion
     {
+        //Test
         public double W { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
