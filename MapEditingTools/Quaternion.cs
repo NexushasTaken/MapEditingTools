@@ -4,7 +4,6 @@ namespace MapEditingTools
 {
     public class Quaternion
     {
-        //Test
         public double W { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
@@ -19,12 +18,12 @@ namespace MapEditingTools
         }
         public Quaternion(double x, double y, double z)
         {
-            double cosx = Math.Cos(QuaternionMethods.ToRadians(x * 0.5));
-            double cosy = Math.Cos(QuaternionMethods.ToRadians(y * 0.5));
-            double cosz = Math.Cos(QuaternionMethods.ToRadians(z * 0.5));
-            double sinx = Math.Sin(QuaternionMethods.ToRadians(x * 0.5));
-            double siny = Math.Sin(QuaternionMethods.ToRadians(y * 0.5));
-            double sinz = Math.Sin(QuaternionMethods.ToRadians(z * 0.5));
+            double cosx = Math.Cos(ToRadians(x * 0.5));
+            double cosy = Math.Cos(ToRadians(y * 0.5));
+            double cosz = Math.Cos(ToRadians(z * 0.5));
+            double sinx = Math.Sin(ToRadians(x * 0.5));
+            double siny = Math.Sin(ToRadians(y * 0.5));
+            double sinz = Math.Sin(ToRadians(z * 0.5));
 
             W = cosx * cosy * cosz - sinx * siny * sinz;
             X = sinx * cosy * cosz + cosx * siny * sinz;
@@ -49,6 +48,22 @@ namespace MapEditingTools
                 Y /= magnitude;
                 Z /= magnitude;
             }
+        }
+        public static double ToRadians(double angle)
+        {
+            return angle % 360 * (Math.PI / 180);
+        }
+        public static Quaternion MultiplyQuat(Quaternion quat1, Quaternion quat2)
+        {
+            Quaternion multipliedQuat = new Quaternion
+            {
+                W = -quat1.X * quat2.X - quat1.Y * quat2.Y - quat1.Z * quat2.Z + quat1.W * quat2.W,
+                X = quat1.X * quat2.W + quat1.Y * quat2.Z - quat1.Z * quat2.Y + quat1.W * quat2.X,
+                Y = -quat1.X * quat2.Z + quat1.Y * quat2.W + quat1.Z * quat2.X + quat1.W * quat2.Y,
+                Z = quat1.X * quat2.Y - quat1.Y * quat2.X + quat1.Z * quat2.W + quat1.W * quat2.Z
+            };
+
+            return multipliedQuat;
         }
     }
 }
