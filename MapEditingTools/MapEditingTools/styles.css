@@ -1,0 +1,59 @@
+body {
+    background-color: lightblue;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 8px;
+    cursor: pointer;
+}
+
+textarea {
+    white-space: nowrap;
+    word-wrap: break-word;
+    resize: none;
+    white-space: pre;
+    height: 10em;
+    width: 100%;
+}
+
+img {
+    display: block;
+    margin:0 auto;
+}
+
+input {
+    width: 100px;
+}
+
+.disabled {
+    cursor:not-allowed;
+    opacity:0.3;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.inputBox {
+    width: 37.5%;
+    margin-left: 2.5%;
+    margin-right:0%;
+}
+
+.outputBox {
+    width: 37.5%;
+    margin-left: 0%;
+    margin-right: 2.5%
+}
