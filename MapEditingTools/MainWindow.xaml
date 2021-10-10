@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Style="{DynamicResource CustomWindowStyle}"
-        Height="450" Width="800"
+        Height="450" Width="202"
         x:Name="_MainWindow"
         ResizeMode="NoResize" Icon="/Data/Images/favicon.ico">
     <Grid>
@@ -31,11 +31,11 @@
                 <ListBoxItem x:Name="_MirrorItem" Content="Mirror" Selected="MirrorItem_Selected"/>
             </ListBox>
         </Grid>
-        <Border x:Name="_TranslatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Visible">
+        <Border x:Name="_TranslatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden">
             <Canvas>
                 <TextBox x:Name="_TranslateTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_TranslateTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
-                <Button x:Name="_TranslateBtn" Content="Translate" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
+                <Button x:Name="_TranslateBtn" Content="Translate" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99" Click="TranslateBtn_Click"/>
                 <Button x:Name="_TranslateCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67"/>
                 <Button x:Name="_TranslateClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67"/>
                 <Button x:Name="_TranslateCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67"/>

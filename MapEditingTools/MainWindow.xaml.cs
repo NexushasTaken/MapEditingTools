@@ -98,5 +98,10 @@ namespace MapEditingTools
         {
             _MirrorPointCanvas.Visibility = Visibility.Hidden;
         }
+
+        private void TranslateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Functions.TranslateMap(_TranslateTBA, _TranslateTBB, _TranslateX.Text, _TranslateY.Text, _TranslateZ.Text);
+        }
     }
 }

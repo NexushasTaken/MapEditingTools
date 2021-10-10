@@ -59,11 +59,11 @@
     <Compile Include="CheckBoxM.cs" />
     <Compile Include="ClipBoardM.cs" />
     <Compile Include="EToolVars.cs" />
+    <Compile Include="Functions.cs" />
     <Compile Include="InputBoxM.cs" />
+    <Compile Include="Object.cs" />
     <Compile Include="Points.cs" />
-    <Compile Include="PointsM.cs" />
     <Compile Include="Quaternion.cs" />
-    <Compile Include="QuaternionMethods.cs" />
     <Compile Include="RadioButtonM.cs" />
     <Compile Include="Themes\ColourfulDarkTheme.xaml.cs">
       <DependentUpon>ColourfulDarkTheme.xaml</DependentUpon>
