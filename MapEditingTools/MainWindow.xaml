@@ -63,6 +63,7 @@
                 <Label Content="Scale:" FontSize="13" Canvas.Left="73" Canvas.Top="116" Height="26"/>
                 <Label Content="Scale Map" FontSize="30"  Canvas.Left="219" Canvas.Top="10"/>
                 <Label Content="Scale Around:" Canvas.Left="225" Canvas.Top="116"/>
+                <Label Content="This is broken for some reason :/ But you can still try this"/>
                 <RadioButton x:Name="_ScaleMapCenter" GroupName="ScaleAround" IsChecked="True" Content="Map Center" Canvas.Left="308" Canvas.Top="110"/>
                 <RadioButton x:Name="_ScalePoint" GroupName="ScaleAround" IsChecked="False" Content="Point" Canvas.Left="308" Canvas.Top="130" Checked="ScalePoint_Checked" Unchecked="ScalePoint_Unchecked"/>
                 <Canvas x:Name="_ScalePointCanvas" Height="70" Width="124" Canvas.Left="407" Canvas.Top="93" Visibility="Hidden">
@@ -109,7 +110,7 @@
             <Canvas>
                 <TextBox x:Name="_MirrorTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_MirrorTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
-                <Button x:Name="_MirrorBtn" Content="Mirror" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
+                <Button x:Name="_MirrorBtn" Content="Mirror" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99" Click="MirrorBtn_Click"/>
                 <Button x:Name="_MirrorCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="MirrorCopyA_Click"/>
                 <Button x:Name="_MirrorClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="MirrorClearA_Click"/>
                 <Button x:Name="_MirrorCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="MirrorCopyB_Click"/>

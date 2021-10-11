@@ -179,12 +179,12 @@ namespace MapEditingTools
             if ((_type.Equals("custom") || _type.Equals("customb") || _type.Equals("base") || (_type.Equals("photon") && _shape.Substring(0, 5).Equals("spawn"))) && _scriptLength >= 19)
             {
                 objectScript =
-                    _type + "," + 
+                    _type + "," +
                     _shape + "," +
                     _texture + "," +
                     _length.toFixed(7) + "," +
                     _height.toFixed(7) + "," +
-                    _width.toFixed(7) +"," +
+                    _width.toFixed(7) + "," +
                     _color.ToString() + "," +
                     _red.toFixed(7) + "," +
                     _green.toFixed(7) + "," +
@@ -437,6 +437,155 @@ namespace MapEditingTools
             }
         }
 
+        public void Mirror(bool[] axes, Point pivot)
+        {
+            var mirrorX = axes[0];
+            var mirrorY = axes[1];
+            var mirrorZ = axes[2];
+
+            if (mirrorX)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> y, x, -w, -z
+                        objects[i].SetQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
+
+                        //a special case
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+
+                        objects[i]._height = -objects[i]._height;
+
+                        objects[i]._Xpos = (pivot.X - objects[i]._Xpos) + pivot.X;
+                    }
+                }
+            }
+
+            if (mirrorY)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> x, -y, z, -w 
+                        objects[i].SetQuat(objects[i]._Xangle, -objects[i]._Yangle, objects[i]._Zangle, -objects[i]._Wangle);
+
+                        //a special case
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+
+                        objects[i]._height = -objects[i]._height;
+
+                        objects[i]._Ypos = (pivot.Y - objects[i]._Ypos) + pivot.Y;
+                    }
+                }
+            }
+
+            if (mirrorZ)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> y, x, -w, -z
+                        objects[i].SetQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
+
+                        //a special case
+                        if (objects[i]._length.Equals(0))
+                            objects[i]._length = 0.000001;
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+                        if (objects[i]._width.Equals(0))
+                            objects[i]._width = 0.000001;
+
+                        objects[i]._length = -objects[i]._length;
+                        objects[i]._height = -objects[i]._height;
+                        objects[i]._width = -objects[i]._width;
+
+                        objects[i]._Zpos = (pivot.Z - objects[i]._Zpos) + pivot.Z;
+                    }
+                }
+            }
+
+        }
+        public void Mirror(bool[] axes)
+        {
+            bool mirrorX = axes[0];
+            bool mirrorY = axes[1];
+            bool mirrorZ = axes[2];
+
+            Point pivot = getMapCenter();
+
+            if (mirrorX)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> y, x, -w, -z
+                        objects[i].SetQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
+
+                        //a special case
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+
+                        objects[i]._height = -objects[i]._height;
+
+                        objects[i]._Xpos = (pivot.X - objects[i]._Xpos) + pivot.X;
+                    }
+                }
+            }
+
+            if (mirrorY)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> x, -y, z, -w 
+                        objects[i].SetQuat(objects[i]._Xangle, -objects[i]._Yangle, objects[i]._Zangle, -objects[i]._Wangle);
+
+                        //a special case
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+
+                        objects[i]._height = -objects[i]._height;
+
+                        objects[i]._Ypos = (pivot.Y - objects[i]._Ypos) + pivot.Y;
+                    }
+                }
+            }
+
+            if (mirrorZ)
+            {
+                for (var i = 0; i < objects.Count(); i++)
+                {
+                    if (!objects[i].IsComment())
+                    {
+                        //x, y, z, w -> y, x, -w, -z
+                        objects[i].SetQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
+
+                        //a special case
+                        if (objects[i]._length.Equals(0))
+                            objects[i]._length = 0.000001;
+                        if (objects[i]._height.Equals(0))
+                            objects[i]._height = 0.000001;
+                        if (objects[i]._width.Equals(0))
+                            objects[i]._width = 0.000001;
+
+                        objects[i]._length = -objects[i]._length;
+                        objects[i]._height = -objects[i]._height;
+                        objects[i]._width = -objects[i]._width;
+
+                        objects[i]._Zpos = (pivot.Z - objects[i]._Zpos) + pivot.Z;
+                    }
+                }
+            }
+
+        }
+
 
         public Point getMapCenter()
         {
@@ -470,96 +619,9 @@ namespace MapEditingTools
 
             return new Point((xMax + xMin) / 2.0, (yMax + yMin) / 2.0, (zMax + zMin) / 2.0);
         }
-    }
-
-
-
-
-
-        //Mirror(axes, pivot)
-        //{
-        //    var mirrorX = axes[0];
-        //    var mirrorY = axes[1];
-        //    var mirrorZ = axes[2];
-
-        //    if (pivot.Equals(null)
-        //        pivot = getMapCenter();
-
-        //    if (mirrorX)
-        //    {
-        //        for (var i = 0; i < objects.length; i++)
-        //        {
-        //            if (!objects[i].isComment())
-        //            {
-        //                //x, y, z, w -> y, x, -w, -z
-        //                objects[i].setQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
-
-        //                //a special case
-        //                if (objects[i]._height.Equals(0)
-        //                    objects[i]._height = 0.000001;
-
-        //                objects[i]._height = -objects[i]._height;
-
-        //                objects[i]._Xpos = (pivot.X - objects[i]._Xpos) + pivot.X;
-        //            }
-        //        }
-        //    }
-
-        //    if (mirrorY)
-        //    {
-        //        for (var i = 0; i < objects.length; i++)
-        //        {
-        //            if (!objects[i].isComment())
-        //            {
-        //                //x, y, z, w -> x, -y, z, -w 
-        //                objects[i].setQuat(objects[i]._Xangle, -objects[i]._Yangle, objects[i]._Zangle, -objects[i]._Wangle);
-
-        //                //a special case
-        //                if (objects[i]._height.Equals(0)
-        //                    objects[i]._height = 0.000001;
-
-        //                objects[i]._height = -objects[i]._height;
-
-        //                objects[i]._Ypos = (pivot.Y - objects[i]._Ypos) + pivot.Y;
-        //            }
-        //        }
-        //    }
-
-        //    if (mirrorZ)
-        //    {
-        //        for (var i = 0; i < objects.length; i++)
-        //        {
-        //            if (!objects[i].isComment())
-        //            {
-        //                //x, y, z, w -> y, x, -w, -z
-        //                objects[i].setQuat(objects[i]._Yangle, objects[i]._Xangle, -objects[i]._Wangle, -objects[i]._Zangle);
-
-        //                //a special case
-        //                if (objects[i]._length.Equals(0)
-        //                    objects[i]._length = 0.000001;
-        //                if (objects[i]._height.Equals(0)
-        //                    objects[i]._height = 0.000001;
-        //                if (objects[i]._width.Equals(0)
-        //                    objects[i]._width = 0.000001;
-
-        //                objects[i]._length = -objects[i]._length;
-        //                objects[i]._height = -objects[i]._height;
-        //                objects[i]._width = -objects[i]._width;
-
-        //                objects[i]._Zpos = (pivot.Z - objects[i]._Zpos) + pivot.Z;
-        //            }
-        //        }
-        //    }
-
-        //}
-
-
-
-
-
-
 
     }
+}
 
 
 
