@@ -54,7 +54,7 @@
             <Canvas>
                 <TextBox x:Name="_ScaleTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10" />
                 <TextBox x:Name="_ScaleTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
-                <Button x:Name="_ScaleBtn" Content="Scale" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
+                <Button x:Name="_ScaleBtn" Content="Scale" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99" Click="ScaleBtn_Click"/>
                 <Button x:Name="_ScaleCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="ScaleCopyA_Click"/>
                 <Button x:Name="_ScaleClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="ScaleClearA_Click"/>
                 <Button x:Name="_ScaleCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="ScaleCopyB_Click"/>

@@ -355,11 +355,6 @@ namespace MapEditingTools
         }
         public void Rotate(Quaternion rotation, Point pivot)
         {
-            //if (pivot.Equals(null))
-            //{
-            //    pivot = getMapCenter();
-            //}
-
             for (var i = 0; i < objects.Count(); i++)
             {
                 if (!objects[i].IsComment())
@@ -408,6 +403,41 @@ namespace MapEditingTools
             }
         }
 
+        //Scale is not working for some reason :/
+        public void Scale(double Scale, Point center)
+        {
+            for (var i = 0; i < objects.Count(); i++)
+            {
+                if (!objects[i].IsComment())
+                {
+                    objects[i]._length *= Scale;
+                    objects[i]._height *= Scale;
+                    objects[i]._width *= Scale;
+                    objects[i]._Xpos = ((objects[i]._Xpos - center.X) * Scale) + center.X;
+                    objects[i]._Ypos = ((objects[i]._Ypos - center.Y) * Scale) + center.Y;
+                    objects[i]._Zpos = ((objects[i]._Zpos - center.Z) * Scale) + center.Z;
+                }
+            }
+        }
+        public void Scale(double Scale)
+        {
+            Point center = getMapCenter();
+
+            for (var i = 0; i < objects.Count(); i++)
+            {
+                if (!objects[i].IsComment())
+                {
+                    objects[i]._length *= Scale;
+                    objects[i]._height *= Scale;
+                    objects[i]._width *= Scale;
+                    objects[i]._Xpos = ((objects[i]._Xpos - center.X) * Scale) + center.X;
+                    objects[i]._Ypos = ((objects[i]._Ypos - center.Y) * Scale) + center.Y;
+                    objects[i]._Zpos = ((objects[i]._Zpos - center.Z) * Scale) + center.Z;
+                }
+            }
+        }
+
+
         public Point getMapCenter()
         {
             double xMax = 0;
@@ -444,24 +474,7 @@ namespace MapEditingTools
 
 
 
-        //Scale(Scale, center)
-        //{
-        //    if (center.Equals(null)
-        //        center = getMapCenter();
 
-        //    for (var i = 0; i < objects.length; i++)
-        //    {
-        //        if (!objects[i].isComment())
-        //        {
-        //            objects[i]._length *= Scale;
-        //            objects[i]._height *= Scale;
-        //            objects[i]._width *= Scale;
-        //            objects[i]._Xpos = ((objects[i]._Xpos - center.X) * Scale) + center.X;
-        //            objects[i]._Ypos = ((objects[i]._Ypos - center.Y) * Scale) + center.Y;
-        //            objects[i]._Zpos = ((objects[i]._Zpos - center.Z) * Scale) + center.Z;
-        //        }
-        //    }
-        //}
 
         //Mirror(axes, pivot)
         //{

@@ -101,12 +101,16 @@ namespace MapEditingTools
 
         private void TranslateBtn_Click(object sender, RoutedEventArgs e)
         {
-            Functions.TranslateMap(_TranslateTBA, _TranslateTBB, _TranslateX.Text, _TranslateY.Text, _TranslateZ.Text);
+            Functions.TranslateMap(_TranslateTBA, _TranslateTBB, _TranslateX, _TranslateY, _TranslateZ);
         }
 
         private void RotateBtn_Click(object sender, RoutedEventArgs e)
         {
             Functions.RotateMap(_RotateTBA, _RotateTBB, _RotateMapCenter, _RotateXAngle, _RotateYAngle, _RotateZAngle, _RotateXPos, _RotateYPos, _RotateZPos);
+        }
+        private void ScaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Functions.ScaleMap(_ScaleTBA, _ScaleTBB, _ScaleMapCenter, _ScaleTB, _ScaleXPos, _ScaleYPos, _ScaleZPos);
         }
 
         private void TranslateCopyA_Click(object sender, RoutedEventArgs e)
