@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Style="{DynamicResource CustomWindowStyle}"
-        Height="450" Width="202"
+        Height="450" Width="800"
         x:Name="_MainWindow"
         ResizeMode="NoResize" Icon="/Data/Images/favicon.ico">
     <Grid>
@@ -36,10 +36,10 @@
                 <TextBox x:Name="_TranslateTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_TranslateTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
                 <Button x:Name="_TranslateBtn" Content="Translate" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99" Click="TranslateBtn_Click"/>
-                <Button x:Name="_TranslateCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67"/>
-                <Button x:Name="_TranslateClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67"/>
-                <Button x:Name="_TranslateCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67"/>
-                <Button x:Name="_TranslateClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67"/>
+                <Button x:Name="_TranslateCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="TranslateCopyA_Click"/>
+                <Button x:Name="_TranslateClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="TranslateClearA_Click"/>
+                <Button x:Name="_TranslateCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="TranslateCopyB_Click"/>
+                <Button x:Name="_TranslateClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67" Click="TranslateClearB_Click"/>
                 <Label Content="Displacement:" FontSize="13" Canvas.Left="34" Canvas.Top="116"/>
                 <Label Content="X:" FontSize="13" Canvas.Left="122" Canvas.Top="94" Height="26"/>
                 <Label Content="Y:" FontSize="13" Canvas.Left="122" Canvas.Top="116" Height="26"/>
@@ -55,10 +55,10 @@
                 <TextBox x:Name="_ScaleTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10" />
                 <TextBox x:Name="_ScaleTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
                 <Button x:Name="_ScaleBtn" Content="Scale" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
-                <Button x:Name="_ScaleCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67"/>
-                <Button x:Name="_ScaleClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67"/>
-                <Button x:Name="_ScaleCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67"/>
-                <Button x:Name="_ScaleClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67"/>
+                <Button x:Name="_ScaleCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="ScaleCopyA_Click"/>
+                <Button x:Name="_ScaleClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="ScaleClearA_Click"/>
+                <Button x:Name="_ScaleCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="ScaleCopyB_Click"/>
+                <Button x:Name="_ScaleClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67" Click="ScaleClearB_Click"/>
                 <TextBox x:Name="_ScaleTB" Text="0" Canvas.Left="115" Canvas.Top="120" Width="80" Height="20"/>
                 <Label Content="Scale:" FontSize="13" Canvas.Left="73" Canvas.Top="116" Height="26"/>
                 <Label Content="Scale Map" FontSize="30"  Canvas.Left="219" Canvas.Top="10"/>
@@ -79,11 +79,11 @@
             <Canvas>
                 <TextBox x:Name="_RotateTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_RotateTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
-                <Button x:Name="_RotateBtn" Content="Rotate" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
-                <Button x:Name="_RotateCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67"/>
-                <Button x:Name="_RotateClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67"/>
-                <Button x:Name="_RotateCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67"/>
-                <Button x:Name="_RotateClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67"/>
+                <Button x:Name="_RotateBtn" Content="Rotate" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99" Click="RotateBtn_Click"/>
+                <Button x:Name="_RotateCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="RotateCopyA_Click"/>
+                <Button x:Name="_RotateClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="RotateClearA_Click"/>
+                <Button x:Name="_RotateCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="RotateCopyB_Click"/>
+                <Button x:Name="_RotateClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67" Click="RotateClearB_Click"/>
                 <Label Content="Rotation:" FontSize="13" Canvas.Left="13" Canvas.Top="116"/>
                 <Label Content="X Angle:" FontSize="13" Canvas.Left="74" Canvas.Top="94" Height="26" RenderTransformOrigin="0.425,0.058"/>
                 <Label Content="Y Angle:" FontSize="13" Canvas.Left="74" Canvas.Top="116" Height="26"/>
@@ -99,7 +99,7 @@
                     <Label Content="X Pos:" FontSize="13" Height="26"/>
                     <Label Content="Y Pos:" FontSize="13" Height="26" Canvas.Top="23"/>
                     <Label Content="Z Pos:" FontSize="13" Height="26" Canvas.Top="46"/>
-                    <TextBox x:Name="_RorateXPos" Text="0" Width="80" Height="20" Canvas.Top="4" Canvas.Left="46"/>
+                    <TextBox x:Name="_RotateXPos" Text="0" Width="80" Height="20" Canvas.Top="4" Canvas.Left="46"/>
                     <TextBox x:Name="_RotateYPos" Text="0" Width="80" Height="20" Canvas.Top="27" Canvas.Left="46"/>
                     <TextBox x:Name="_RotateZPos" Text="0" Width="80" Height="20" Canvas.Top="50" Canvas.Left="46"/>
                 </Canvas>
@@ -110,10 +110,10 @@
                 <TextBox x:Name="_MirrorTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_MirrorTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
                 <Button x:Name="_MirrorBtn" Content="Mirror" Canvas.Left="240" Canvas.Top="252" Height="32" Width="99"/>
-                <Button x:Name="_MirrorCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67"/>
-                <Button x:Name="_MirrorClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67"/>
-                <Button x:Name="_MirrorCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67"/>
-                <Button x:Name="_MirrorClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67"/>
+                <Button x:Name="_MirrorCopyA" Content="Copy" Canvas.Top="327" Canvas.Left="51" Height="32" Width="67" Click="MirrorCopyA_Click"/>
+                <Button x:Name="_MirrorClearA" Content="Clear" Canvas.Top="327" Canvas.Left="128" Height="32" Width="67" Click="MirrorClearA_Click"/>
+                <Button x:Name="_MirrorCopyB" Content="Copy" Canvas.Top="327" Canvas.Left="383" Height="32" Width="67" Click="MirrorCopyB_Click"/>
+                <Button x:Name="_MirrorClearB" Content="Clear" Canvas.Top="327" Canvas.Left="460" Height="32" Width="67" Click="MirrorClearB_Click"/>
                 <Label Content="Mirror:" FontSize="13" Canvas.Left="62" Canvas.Top="116"/>
                 <Label Content="X" FontSize="13" Canvas.Left="113" Canvas.Top="94" Height="26" RenderTransformOrigin="0.425,0.058"/>
                 <Label Content="Y" FontSize="13" Canvas.Left="113" Canvas.Top="116" Height="26"/>

@@ -103,5 +103,78 @@ namespace MapEditingTools
         {
             Functions.TranslateMap(_TranslateTBA, _TranslateTBB, _TranslateX.Text, _TranslateY.Text, _TranslateZ.Text);
         }
+
+        private void RotateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Functions.RotateMap(_RotateTBA, _RotateTBB, _RotateMapCenter, _RotateXAngle, _RotateYAngle, _RotateZAngle, _RotateXPos, _RotateYPos, _RotateZPos);
+        }
+
+        private void TranslateCopyA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_TranslateTBA);
+        }
+        private void TranslateClearA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_TranslateTBA);
+        }
+        private void TranslateCopyB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_TranslateTBB);
+        }
+        private void TranslateClearB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_TranslateTBB);
+        }
+
+        private void ScaleCopyA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_ScaleTBA);
+        }
+        private void ScaleClearA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_ScaleTBA);
+        }
+        private void ScaleCopyB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_ScaleTBB);
+        }
+        private void ScaleClearB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_ScaleTBB);
+        }
+
+        private void RotateCopyA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_RotateTBA);
+        }
+        private void RotateClearA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_RotateTBA);
+        }
+        private void RotateCopyB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_RotateTBB);
+        }
+        private void RotateClearB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_RotateTBB);
+        }
+
+        private void MirrorCopyA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_MirrorTBA);
+        }
+        private void MirrorClearA_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_MirrorTBA);
+        }
+        private void MirrorCopyB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Copy(_MirrorTBB);
+        }
+        private void MirrorClearB_Click(object sender, RoutedEventArgs e)
+        {
+            ClipBoardM.Empty(_MirrorTBB);
+        }
     }
 }

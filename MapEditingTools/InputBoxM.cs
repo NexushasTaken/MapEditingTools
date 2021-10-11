@@ -17,7 +17,7 @@ namespace MapEditingTools
                 return 0;
             }
 
-            return Convert.ToInt32(textbox.Text);
+            return Convert.ToDouble(textbox.Text);
         }
 
         //Idk whats this use for
