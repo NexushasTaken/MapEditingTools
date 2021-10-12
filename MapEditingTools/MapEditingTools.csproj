@@ -65,6 +65,7 @@
     <Compile Include="Point.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="RadioButtonM.cs" />
+    <Compile Include="RotationConverter.cs" />
     <Compile Include="Themes\ColourfulDarkTheme.xaml.cs">
       <DependentUpon>ColourfulDarkTheme.xaml</DependentUpon>
     </Compile>
@@ -136,25 +137,6 @@
   <ItemGroup>
     <Resource Include="Data\Images\favicon.ico" />
     <Resource Include="Data\Images\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MapEditingTools\Checkbox.js" />
-    <Content Include="MapEditingTools\Clipboard.js" />
-    <Resource Include="MapEditingTools\favicon.ico" />
-    <Content Include="MapEditingTools\Functions.js" />
-    <Content Include="MapEditingTools\index-2.html" />
-    <Content Include="MapEditingTools\index.html" />
-    <Content Include="MapEditingTools\InputBox.js" />
-    <Resource Include="MapEditingTools\Logo.png" />
-    <Content Include="MapEditingTools\Mirror.html" />
-    <Content Include="MapEditingTools\Object.js" />
-    <Content Include="MapEditingTools\Point.js" />
-    <Content Include="MapEditingTools\Quaternion.js" />
-    <Content Include="MapEditingTools\RadioButton.js" />
-    <Content Include="MapEditingTools\Rotate.html" />
-    <Content Include="MapEditingTools\Scale.html" />
-    <Content Include="MapEditingTools\styles.css" />
-    <Content Include="MapEditingTools\Translate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

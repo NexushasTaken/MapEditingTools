@@ -11,11 +11,15 @@
         x:Name="_MainWindow"
         ResizeMode="NoResize" Icon="/Data/Images/favicon.ico">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid>
+        <Grid Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition/>
@@ -29,9 +33,10 @@
                 <ListBoxItem x:Name="_ScaleItem" Content="Scale" Selected="ScaleItem_Selected"/>
                 <ListBoxItem x:Name="_RotateItem" Content="Rotate" Selected="RotateItem_Selected"/>
                 <ListBoxItem x:Name="_MirrorItem" Content="Mirror" Selected="MirrorItem_Selected"/>
+                <ListBoxItem x:Name="_RotationConvertItem" Content="Rotation Converter" Selected="RotationConvertItem_Selected"/>
             </ListBox>
         </Grid>
-        <Border x:Name="_TranslatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden">
+        <Border x:Name="_TranslatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
             <Canvas>
                 <TextBox x:Name="_TranslateTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_TranslateTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
@@ -50,7 +55,7 @@
                 <TextBox x:Name="_TranslateZ" Text="0" Canvas.Left="142" Canvas.Top="142" Width="80" Height="20"/>
             </Canvas>
         </Border>
-        <Border x:Name="_ScalePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden">
+        <Border x:Name="_ScalePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
             <Canvas>
                 <TextBox x:Name="_ScaleTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10" />
                 <TextBox x:Name="_ScaleTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
@@ -76,7 +81,7 @@
                 </Canvas>
             </Canvas>
         </Border>
-        <Border x:Name="_RotatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden">
+        <Border x:Name="_RotatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
             <Canvas>
                 <TextBox x:Name="_RotateTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_RotateTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
@@ -106,7 +111,7 @@
                 </Canvas>
             </Canvas>
         </Border>
-        <Border x:Name="_MirrorPanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden">
+        <Border x:Name="_MirrorPanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
             <Canvas>
                 <TextBox x:Name="_MirrorTBA" AcceptsReturn="True" Canvas.Top="176" Height="146" Width="220" Canvas.Left="10"/>
                 <TextBox x:Name="_MirrorTBB" Canvas.Left="348" Canvas.Top="176" Height="146" Width="220" IsReadOnly="True"/>
@@ -134,6 +139,29 @@
                     <TextBox x:Name="_MirrorYPos" Text="0" Width="80" Height="20" Canvas.Top="27" Canvas.Left="46"/>
                     <TextBox x:Name="_MirrorZPos" Text="0" Width="80" Height="20" Canvas.Top="50" Canvas.Left="46"/>
                 </Canvas>
+            </Canvas>
+        </Border>
+        <Border x:Name="_RotationConverter" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
+            <Canvas>
+                <Label Content="Rotation Converter" Canvas.Left="30" Canvas.Top="30" FontSize="20"/>
+                <Label Content="Euler :" Canvas.Left="65" Canvas.Top="80"/>
+                <Label Content="Quaternion :" Canvas.Left="31" Canvas.Top="120"/>
+                <Label Content="W" Canvas.Left="254" Canvas.Top="110"/>
+                <Label Content="X" Canvas.Left="121" Canvas.Top="70"/>
+                <Label Content="Y" Canvas.Left="166" Canvas.Top="70"/>
+                <Label Content="Z" Canvas.Left="211" Canvas.Top="70"/>
+                <Label Content="X" Canvas.Left="121" Canvas.Top="110"/>
+                <Label Content="Y" Canvas.Left="166" Canvas.Top="110"/>
+                <Label Content="Z" Canvas.Left="211" Canvas.Top="110"/>
+                <TextBox x:Name="_EulerX" Width="40" Canvas.Left="110" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
+                <TextBox x:Name="_EulerY" Width="40" Canvas.Left="155" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
+                <TextBox x:Name="_EulerZ" Width="40" Canvas.Left="200" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
+                <TextBox x:Name="_QuatW" Width="40" Canvas.Left="245" Canvas.Top="133" IsReadOnly="True"/>
+                <TextBox x:Name="_QuatX" Width="40" Canvas.Left="110" Canvas.Top="133" IsReadOnly="True"/>
+                <TextBox x:Name="_QuatY" Width="40" Canvas.Left="155" Canvas.Top="133" IsReadOnly="True"/>
+                <TextBox x:Name="_QuatZ" Width="40" Canvas.Left="200" Canvas.Top="133" IsReadOnly="True"/>
+                <Button x:Name="_QuatCopy" Content="Copy" Canvas.Left="290" Canvas.Top="123" Click="QuatCopy_Click"/>
+                <Button x:Name="_EulerCopy" Content="Copy" Canvas.Left="245" Canvas.Top="83" Click="EulerCopy_Click"/>
             </Canvas>
         </Border>
     </Grid>

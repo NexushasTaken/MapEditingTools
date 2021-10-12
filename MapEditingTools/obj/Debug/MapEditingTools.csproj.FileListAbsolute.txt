@@ -22,4 +22,3 @@ C:\Users\Nexus\source\repos\MapEditingTools\MapEditingTools\obj\Debug\Themes\Col
 C:\Users\Nexus\source\repos\MapEditingTools\MapEditingTools\obj\Debug\Themes\DarkTheme.g.cs
 C:\Users\Nexus\source\repos\MapEditingTools\MapEditingTools\obj\Debug\Themes\LightTheme.g.cs
 C:\Users\Nexus\source\repos\MapEditingTools\MapEditingTools\obj\Debug\App.baml
-C:\Users\Nexus\source\repos\MapEditingTools\MapEditingTools\obj\Debug\MapEditingTools_Content.g.cs

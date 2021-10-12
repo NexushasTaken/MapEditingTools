@@ -16,10 +16,29 @@ namespace MapEditingTools
                 textbox.Text = 0.ToString();
                 return 0;
             }
-
-            return Convert.ToDouble(textbox.Text);
+            return Convert.ToInt32(textbox.Text);
         }
 
+        public static double GetTextboxNumberA(TextBox textbox)
+        {
+            try
+            {
+                if (Convert.ToDouble(textbox.Text) >= 360)
+                {
+                    textbox.Text = 359.ToString();
+                    return 359;
+                }
+                else
+                {
+                    return Convert.ToDouble(textbox.Text);
+                }
+            }
+            catch (FormatException)
+            {
+                textbox.Text = "0";
+                return 0;
+            }
+        }
         //Idk whats this use for
         //function isNumberKey(evt)
         //{
