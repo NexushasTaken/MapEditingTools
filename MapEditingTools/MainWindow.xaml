@@ -32,8 +32,9 @@
                 <ListBoxItem x:Name="_TranslateItem" Content="Translate" Selected="TranslateItem_Selected"/>
                 <ListBoxItem x:Name="_ScaleItem" Content="Scale" Selected="ScaleItem_Selected"/>
                 <ListBoxItem x:Name="_RotateItem" Content="Rotate" Selected="RotateItem_Selected"/>
-                <ListBoxItem x:Name="_MirrorItem" Content="Mirror" Selected="MirrorItem_Selected"/>
+                <ListBoxItem x:Name="_MirrorItem" Content="Mirror" Selected="MirrorItem_Selected"/> 
                 <ListBoxItem x:Name="_RotationConvertItem" Content="Rotation Converter" Selected="RotationConvertItem_Selected"/>
+                <ListBoxItem x:Name="_ColorCodeConvertItem" Content="Color Code Convert" Selected="ColorCodeConvertItem_Selected"/>
             </ListBox>
         </Grid>
         <Border x:Name="_TranslatePanel" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Hidden" Grid.RowSpan="2">
@@ -153,15 +154,31 @@
                 <Label Content="X" Canvas.Left="121" Canvas.Top="110"/>
                 <Label Content="Y" Canvas.Left="166" Canvas.Top="110"/>
                 <Label Content="Z" Canvas.Left="211" Canvas.Top="110"/>
-                <TextBox x:Name="_EulerX" Width="40" Canvas.Left="110" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
-                <TextBox x:Name="_EulerY" Width="40" Canvas.Left="155" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
-                <TextBox x:Name="_EulerZ" Width="40" Canvas.Left="200" Canvas.Top="93" TextChanged="EulerX_TextChanged"/>
+                <TextBox x:Name="_EulerX" Width="40" Canvas.Left="110" Canvas.Top="93" TextChanged="Euler_TextChanged"/>
+                <TextBox x:Name="_EulerY" Width="40" Canvas.Left="155" Canvas.Top="93" TextChanged="Euler_TextChanged"/>
+                <TextBox x:Name="_EulerZ" Width="40" Canvas.Left="200" Canvas.Top="93" TextChanged="Euler_TextChanged"/>
                 <TextBox x:Name="_QuatW" Width="40" Canvas.Left="245" Canvas.Top="133" IsReadOnly="True"/>
                 <TextBox x:Name="_QuatX" Width="40" Canvas.Left="110" Canvas.Top="133" IsReadOnly="True"/>
                 <TextBox x:Name="_QuatY" Width="40" Canvas.Left="155" Canvas.Top="133" IsReadOnly="True"/>
                 <TextBox x:Name="_QuatZ" Width="40" Canvas.Left="200" Canvas.Top="133" IsReadOnly="True"/>
                 <Button x:Name="_QuatCopy" Content="Copy" Canvas.Left="290" Canvas.Top="123" Click="QuatCopy_Click"/>
                 <Button x:Name="_EulerCopy" Content="Copy" Canvas.Left="245" Canvas.Top="83" Click="EulerCopy_Click"/>
+            </Canvas>
+        </Border>
+        <Border x:Name="_ColorCodeConverter" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FF202020" Visibility="Visible" Grid.RowSpan="2">
+            <Canvas>
+                <Label Content="Color Code Converter" Canvas.Left="30" Canvas.Top="30" FontSize="20"/>
+                <Label Content="RGB (0 - 255) :" Canvas.Left="24" Canvas.Top="80"/>
+                <Label Content="Hexadecimal :" Canvas.Left="26" Canvas.Top="120"/>
+                <Label Content="R" Canvas.Left="121" Canvas.Top="70"/>
+                <Label Content="G" Canvas.Left="166" Canvas.Top="70"/>
+                <Label Content="B" Canvas.Left="211" Canvas.Top="70"/>
+                <TextBox x:Name="_RedTB" Width="40" Canvas.Left="110" Canvas.Top="93" TextChanged="RGBTB_TextChanged"/>
+                <TextBox x:Name="_GreenTB" Width="40" Canvas.Left="155" Canvas.Top="93" TextChanged="RGBTB_TextChanged"/>
+                <TextBox x:Name="_BlueTB" Width="40" Canvas.Left="200" Canvas.Top="93" TextChanged="RGBTB_TextChanged"/>
+                <TextBox x:Name="_HexTB" Width="60" Canvas.Left="110" Canvas.Top="125" TextChanged="HexTB_TextChanged"/>
+                <Button x:Name="_RGBCopy" Content="Copy" Canvas.Left="245" Canvas.Top="83" Click="RGBCopy_Click"/>
+                <Button x:Name="_HexCopy" Content="Copy" Canvas.Left="175" Canvas.Top="124" Click="HexCopy_Click"/>
             </Canvas>
         </Border>
     </Grid>

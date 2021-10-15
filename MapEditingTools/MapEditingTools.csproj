@@ -56,8 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AotObjProps.cs" />
     <Compile Include="CheckBoxM.cs" />
     <Compile Include="ClipBoardM.cs" />
+    <Compile Include="ColorCode.cs" />
     <Compile Include="EToolVars.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="InputBoxM.cs" />

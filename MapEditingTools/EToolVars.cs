@@ -9,6 +9,7 @@ namespace MapEditingTools
     public enum EToolVars
     {
         Mirror, Rotate, Scale, Translate,
-        RotationConverter
+        RotationConverter,
+        ColorCodeConverter
     }
 }
