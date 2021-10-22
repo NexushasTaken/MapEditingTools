@@ -8,9 +8,7 @@ namespace MapEditingTools
 {
     class RotationConverter
     {
-        private double heading;
-        private double attitude;
-        private double bank;
+		double heading, attitude, bank;
 
         public RotationConverter(Quat4d q1)
 		{
@@ -40,10 +38,7 @@ namespace MapEditingTools
 
     public class Quat4d
 	{
-		public int w;
-		public int x;
-		public int y;
-		public int z;
+		public int w, x, y, z;
 
         public Quat4d(int w, int x, int y, int z)
         {

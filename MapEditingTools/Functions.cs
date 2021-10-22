@@ -8,7 +8,7 @@ namespace MapEditingTools
         public static void TranslateMap(TextBox input, TextBox output, TextBox translateX, TextBox translateY, TextBox translateZ)
         {
             CustomMap TranslatedMap = new CustomMap(input.Text);
-            Point displacement = new Point(InputBoxM.GetTextboxNumber(translateX), InputBoxM.GetTextboxNumber(translateY), InputBoxM.GetTextboxNumber(translateZ));
+            Point displacement = new Point(InputBoxM.GetTextboxNumberA(translateX), InputBoxM.GetTextboxNumberA(translateY), InputBoxM.GetTextboxNumberA(translateZ));
             TranslatedMap.Translate(displacement);
 
             output.Text = TranslatedMap.ToString();
@@ -17,11 +17,11 @@ namespace MapEditingTools
         public static void RotateMap(TextBox input, TextBox output, RadioButton pivotButton, TextBox rotateX, TextBox rotateY, TextBox rotateZ, TextBox pivotX, TextBox pivotY, TextBox pivotZ)
         {
             CustomMap rotatedMap = new CustomMap(input.Text);
-            Quaternion rotation = new Quaternion(-InputBoxM.GetTextboxNumber(rotateX), InputBoxM.GetTextboxNumber(rotateY), -InputBoxM.GetTextboxNumber(rotateZ));
+            Quaternion rotation = new Quaternion(-InputBoxM.GetTextboxNumberA(rotateX), InputBoxM.GetTextboxNumberA(rotateY), -InputBoxM.GetTextboxNumberA(rotateZ));
 
             if (pivotButton.IsChecked == true)
             {
-                Point pivot = new Point(InputBoxM.GetTextboxNumber(pivotX), InputBoxM.GetTextboxNumber(pivotY), InputBoxM.GetTextboxNumber(pivotZ));
+                Point pivot = new Point(InputBoxM.GetTextboxNumberA(pivotX), InputBoxM.GetTextboxNumberA(pivotY), InputBoxM.GetTextboxNumberA(pivotZ));
                 rotatedMap.Rotate(rotation, pivot);
             }
             else
@@ -36,12 +36,12 @@ namespace MapEditingTools
 
             if (pivotButton.IsChecked == true)
             {
-                Point center = new Point(InputBoxM.GetTextboxNumber(centerX), InputBoxM.GetTextboxNumber(centerY), InputBoxM.GetTextboxNumber(centerZ));
-                scaledMap.Scale(InputBoxM.GetTextboxNumber(Scale), center);
+                Point center = new Point(InputBoxM.GetTextboxNumberA(centerX), InputBoxM.GetTextboxNumberA(centerY), InputBoxM.GetTextboxNumberA(centerZ));
+                scaledMap.Scale(InputBoxM.GetTextboxNumberA(Scale), center);
             }
             else
             {
-                scaledMap.Scale(InputBoxM.GetTextboxNumber(Scale));
+                scaledMap.Scale(InputBoxM.GetTextboxNumberA(Scale));
             }
 
             output.Text = scaledMap.ToString();
@@ -62,7 +62,7 @@ namespace MapEditingTools
             if (pivotButton.IsChecked == true)
             {
                 //Point pivot = new Point(InputBoxM.GetTextboxNumber(pivotX)), InputBoxM.GetTextboxNumber(pivotY)), InputBoxM.GetTextboxNumber(pivotZ)));
-                Point pivot = new Point(InputBoxM.GetTextboxNumber(pivotX), InputBoxM.GetTextboxNumber(pivotY), InputBoxM.GetTextboxNumber(pivotZ));
+                Point pivot = new Point(InputBoxM.GetTextboxNumberA(pivotX), InputBoxM.GetTextboxNumberA(pivotY), InputBoxM.GetTextboxNumberA(pivotZ));
                 mirroredMap.Mirror(axes, pivot);
             }
             else

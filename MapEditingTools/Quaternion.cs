@@ -18,12 +18,12 @@ namespace MapEditingTools
         }
         public Quaternion(double x, double y, double z)
         {
-            double cosx = Math.Cos(ToRadians(x * 0.5));
-            double cosy = Math.Cos(ToRadians(y * 0.5));
-            double cosz = Math.Cos(ToRadians(z * 0.5));
-            double sinx = Math.Sin(ToRadians(x * 0.5));
-            double siny = Math.Sin(ToRadians(y * 0.5));
-            double sinz = Math.Sin(ToRadians(z * 0.5));
+            double cosx = Math.Cos(ToRadians(x));
+            double cosy = Math.Cos(ToRadians(y));
+            double cosz = Math.Cos(ToRadians(z));
+            double sinx = Math.Sin(ToRadians(x));
+            double siny = Math.Sin(ToRadians(y));
+            double sinz = Math.Sin(ToRadians(z));
 
             W = cosx * cosy * cosz - sinx * siny * sinz;
             X = sinx * cosy * cosz + cosx * siny * sinz;
@@ -49,10 +49,6 @@ namespace MapEditingTools
                 Z /= magnitude;
             }
         }
-        public static double ToRadians(double angle)
-        {
-            return angle % 360 * (Math.PI / 180);
-        }
         public static Quaternion MultiplyQuat(Quaternion quat1, Quaternion quat2)
         {
             Quaternion multipliedQuat = new Quaternion
@@ -64,6 +60,11 @@ namespace MapEditingTools
             };
 
             return multipliedQuat;
+        }
+        public double ToRadians(double angle)
+        {
+            return (Math.PI / 180) *
+                   (angle * 0.5); //Some Additional :D
         }
     }
 }

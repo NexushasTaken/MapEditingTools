@@ -8,130 +8,109 @@ namespace MapEditingTools
 {
     public class Object
     {
-        public string _type;
-        public string _content;
-        public string _shape;
-        public int _scriptLength;
-        public string _texture;
-        public string _name;
-        public double _length;
-        public double _height;
-        public double _width;
-        public int _color;
-        public double _red;
-        public double _green;
-        public double _blue;
-        public double _tileX;
-        public double _tileY;
-        public double _Xpos;
-        public double _Ypos;
-        public double _Zpos;
-        public double _Xangle;
-        public double _Yangle;
-        public double _Zangle;
-        public double _Wangle;
+        public string _type, _content, _shape, _texture, _name;
         public double _spawnTime;
-        public int _endlessMode;
-        public int _objectType;
+        public int _endlessMode, _objectType, _scriptLength;
+        public double _length, _height, _width;
+        public int _color;
+        public double _red, _green, _blue;
+        public double _tileX, _tileY;
+        public double _Xpos, _Ypos, _Zpos;
+        public double _Xangle, _Yangle, _Zangle, _Wangle;
 
         public Object(string objectScript)
         {
             string[] elementList = objectScript.Split(',');
 
             _type = elementList[0];
-            if (elementList.Length != 1)
-            {
-                _shape = elementList[1];
-            }
-            else
-            {
-                _shape = "SOME TEST TEXT LMAO!!";
-            }
+            if (elementList.Length != 1) _shape = elementList[1];
+            else _shape = "SOME TEST TEXT LMAO!!";
+
             _scriptLength = elementList.Length;
 
             if ((_type.Equals("custom") || _type.Equals("customb") || _type.Equals("base") || (_type.Equals("photon") && !_shape.Substring(0, 5).Equals("spawn"))) && _scriptLength >= 19)
             {
                 _texture = elementList[2];
-                _length = Convert.ToDouble(elementList[3]);
-                _height = Convert.ToDouble(elementList[4]);
-                _width = Convert.ToDouble(elementList[5]);
-                _color = Convert.ToInt32(elementList[6]);
-                _red = Convert.ToDouble(elementList[7]);
-                _green = Convert.ToDouble(elementList[8]);
-                _blue = Convert.ToDouble(elementList[9]);
-                _tileX = Convert.ToDouble(elementList[10]);
-                _tileY = Convert.ToDouble(elementList[11]);
-                _Xpos = Convert.ToDouble(elementList[12]);
-                _Ypos = Convert.ToDouble(elementList[13]);
-                _Zpos = Convert.ToDouble(elementList[14]);
-                _Xangle = Convert.ToDouble(elementList[15]);
-                _Yangle = Convert.ToDouble(elementList[16]);
-                _Zangle = Convert.ToDouble(elementList[17]);
-                _Wangle = Convert.ToDouble(elementList[18]);
+                _length = ToDouble(elementList[3]);
+                _height = ToDouble(elementList[4]);
+                _width = ToDouble(elementList[5]);
+                _color = ToInt(elementList[6]);
+                _red = ToDouble(elementList[7]);
+                _green = ToDouble(elementList[8]);
+                _blue = ToDouble(elementList[9]);
+                _tileX = ToDouble(elementList[10]);
+                _tileY = ToDouble(elementList[11]);
+                _Xpos = ToDouble(elementList[12]);
+                _Ypos = ToDouble(elementList[13]);
+                _Zpos = ToDouble(elementList[14]);
+                _Xangle = ToDouble(elementList[15]);
+                _Yangle = ToDouble(elementList[16]);
+                _Zangle = ToDouble(elementList[17]);
+                _Wangle = ToDouble(elementList[18]);
                 _objectType = 0;
             }
             else if (_type.Equals("base") && _scriptLength >= 9)
             {
-                _Xpos = Convert.ToDouble(elementList[2]);
-                _Ypos = Convert.ToDouble(elementList[3]);
-                _Zpos = Convert.ToDouble(elementList[4]);
-                _Xangle = Convert.ToDouble(elementList[5]);
-                _Yangle = Convert.ToDouble(elementList[6]);
-                _Zangle = Convert.ToDouble(elementList[7]);
-                _Wangle = Convert.ToDouble(elementList[8]);
+                _Xpos = ToDouble(elementList[2]);
+                _Ypos = ToDouble(elementList[3]);
+                _Zpos = ToDouble(elementList[4]);
+                _Xangle = ToDouble(elementList[5]);
+                _Yangle = ToDouble(elementList[6]);
+                _Zangle = ToDouble(elementList[7]);
+                _Wangle = ToDouble(elementList[8]);
                 _objectType = 1;
             }
             else if (_type.Equals("racing") || _type.Equals("misc") && _shape.Equals("barrier") && _scriptLength >= 12)
             {
-                _length = Convert.ToDouble(elementList[2]);
-                _height = Convert.ToDouble(elementList[3]);
-                _width = Convert.ToDouble(elementList[4]);
-                _Xpos = Convert.ToDouble(elementList[5]);
-                _Ypos = Convert.ToDouble(elementList[6]);
-                _Zpos = Convert.ToDouble(elementList[7]);
-                _Xangle = Convert.ToDouble(elementList[8]);
-                _Yangle = Convert.ToDouble(elementList[9]);
-                _Zangle = Convert.ToDouble(elementList[10]);
-                _Wangle = Convert.ToDouble(elementList[11]);
+                _length = ToDouble(elementList[2]);
+                _height = ToDouble(elementList[3]);
+                _width = ToDouble(elementList[4]);
+                _Xpos = ToDouble(elementList[5]);
+                _Ypos = ToDouble(elementList[6]);
+                _Zpos = ToDouble(elementList[7]);
+                _Xangle = ToDouble(elementList[8]);
+                _Yangle = ToDouble(elementList[9]);
+                _Zangle = ToDouble(elementList[10]);
+                _Wangle = ToDouble(elementList[11]);
                 _objectType = 2;
             }
             else if (_type.Equals("misc") && _scriptLength >= 13)
             {
                 _name = elementList[2];
-                _length = Convert.ToDouble(elementList[3]);
-                _height = Convert.ToDouble(elementList[4]);
-                _width = Convert.ToDouble(elementList[5]);
-                _Xpos = Convert.ToDouble(elementList[6]);
-                _Ypos = Convert.ToDouble(elementList[7]);
-                _Zpos = Convert.ToDouble(elementList[8]);
-                _Xangle = Convert.ToDouble(elementList[9]);
-                _Yangle = Convert.ToDouble(elementList[10]);
-                _Zangle = Convert.ToDouble(elementList[11]);
-                _Wangle = Convert.ToDouble(elementList[12]);
+                _length = ToDouble(elementList[3]);
+                _height = ToDouble(elementList[4]);
+                _width = ToDouble(elementList[5]);
+                _Xpos = ToDouble(elementList[6]);
+                _Ypos = ToDouble(elementList[7]);
+                _Zpos = ToDouble(elementList[8]);
+                _Xangle = ToDouble(elementList[9]);
+                _Yangle = ToDouble(elementList[10]);
+                _Zangle = ToDouble(elementList[11]);
+                _Wangle = ToDouble(elementList[12]);
                 _objectType = 3;
             }
             else if (_type.Equals("spawnpoint") && _scriptLength >= 9)
             {
-                _Xpos = Convert.ToDouble(elementList[2]);
-                _Ypos = Convert.ToDouble(elementList[3]);
-                _Zpos = Convert.ToDouble(elementList[4]);
-                _Xangle = Convert.ToDouble(elementList[5]);
-                _Yangle = Convert.ToDouble(elementList[6]);
-                _Zangle = Convert.ToDouble(elementList[7]);
-                _Wangle = Convert.ToDouble(elementList[8]);
+                _Xpos = ToDouble(elementList[2]);
+                _Ypos = ToDouble(elementList[3]);
+                _Zpos = ToDouble(elementList[4]);
+                _Xangle = ToDouble(elementList[5]);
+                _Yangle = ToDouble(elementList[6]);
+                _Zangle = ToDouble(elementList[7]);
+                _Wangle = ToDouble(elementList[8]);
                 _objectType = 4;
             }
             else if (_type.Equals("photon") && _scriptLength >= 11)
             {
-                _spawnTime = Convert.ToDouble(elementList[2]);
-                _endlessMode = Convert.ToInt32(elementList[3]);
-                _Xpos = Convert.ToDouble(elementList[4]);
-                _Ypos = Convert.ToDouble(elementList[5]);
-                _Zpos = Convert.ToDouble(elementList[6]);
-                _Xangle = Convert.ToDouble(elementList[7]);
-                _Yangle = Convert.ToDouble(elementList[8]);
-                _Zangle = Convert.ToDouble(elementList[9]);
-                _Wangle = Convert.ToDouble(elementList[10]);
+                _spawnTime = ToDouble(elementList[2]);
+                _endlessMode = ToInt(elementList[3]);
+                _Xpos = ToDouble(elementList[4]);
+                _Ypos = ToDouble(elementList[5]);
+                _Zpos = ToDouble(elementList[6]);
+                _Xangle = ToDouble(elementList[7]);
+                _Yangle = ToDouble(elementList[8]);
+                _Zangle = ToDouble(elementList[9]);
+                _Wangle = ToDouble(elementList[10]);
                 _objectType = 5;
             }
             else
@@ -139,14 +118,20 @@ namespace MapEditingTools
                 _type = "comment";
                 _content = objectScript;
                 _shape = null;
-                _objectType = 6;
             }
         }
-
+        public double ToDouble(string value)
+        {
+            return Convert.ToDouble(value);
+        }
+        public int ToInt(string value)
+        {
+            return Convert.ToInt32(value);
+        }
         //class functions \o/
         public bool IsComment()
         {
-            return _type.Equals("comment");
+            return _objectType == 6;
         }
 
         public void SetSize(double length, double height, double width)
@@ -176,102 +161,102 @@ namespace MapEditingTools
         {
             string objectScript;
 
-            if ((_type.Equals("custom") || _type.Equals("customb") || _type.Equals("base") || (_type.Equals("photon") && _shape.Substring(0, 5).Equals("spawn"))) && _scriptLength >= 19)
+            if (_objectType == 0)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
                     _texture + "," +
-                    _length.toFixed(7) + "," +
-                    _height.toFixed(7) + "," +
-                    _width.toFixed(7) + "," +
+                    _length.ToFixed(7) + "," +
+                    _height.ToFixed(7) + "," +
+                    _width.ToFixed(7) + "," +
                     _color.ToString() + "," +
-                    _red.toFixed(7) + "," +
-                    _green.toFixed(7) + "," +
-                    _blue.toFixed(7) + "," +
-                    _tileX.toFixed(7) + "," +
-                    _tileY.toFixed(7) + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                    _Wangle.toFixed(7);
+                    _red.ToFixed(7) + "," +
+                    _green.ToFixed(7) + "," +
+                    _blue.ToFixed(7) + "," +
+                    _tileX.ToFixed(7) + "," +
+                    _tileY.ToFixed(7) + "," +
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                    _Wangle.ToFixed(7);
             }
-            else if (_type.Equals("base"))
+            else if (_objectType == 1)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                   _Wangle.toFixed(7);
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                   _Wangle.ToFixed(7);
             }
-            else if (_type.Equals("racing") || (_type.Equals("misc") && _shape.Equals("barrier")))
+            else if (_objectType == 2)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
-                    _length.toFixed(7) + "," +
-                    _height.toFixed(7) + "," +
-                    _width.toFixed(7) + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                    _Wangle.toFixed(7);
+                    _length.ToFixed(7) + "," +
+                    _height.ToFixed(7) + "," +
+                    _width.ToFixed(7) + "," +
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                    _Wangle.ToFixed(7);
             }
-            else if (_type.Equals("misc"))
+            else if (_objectType == 3)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
                     _name + "," +
-                    _length.toFixed(7) + "," +
-                    _height.toFixed(7) + "," +
-                    _width.toFixed(7) + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                    _Wangle.toFixed(7);
+                    _length.ToFixed(7) + "," +
+                    _height.ToFixed(7) + "," +
+                    _width.ToFixed(7) + "," +
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                    _Wangle.ToFixed(7);
             }
-            else if (_type.Equals("spawnpoint"))
+            else if (_objectType == 4)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                    _Wangle.toFixed(7);
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                    _Wangle.ToFixed(7);
             }
-            else if (_type.Equals("photon"))
+            else if (_objectType == 5)
             {
                 objectScript =
                     _type + "," +
                     _shape + "," +
                     _spawnTime + "," +
                     _endlessMode + "," +
-                    _Xpos.toFixed(7) + "," +
-                    _Ypos.toFixed(7) + "," +
-                    _Zpos.toFixed(7) + "," +
-                    _Xangle.toFixed(7) + "," +
-                    _Yangle.toFixed(7) + "," +
-                    _Zangle.toFixed(7) + "," +
-                    _Wangle.toFixed(7);
+                    _Xpos.ToFixed(7) + "," +
+                    _Ypos.ToFixed(7) + "," +
+                    _Zpos.ToFixed(7) + "," +
+                    _Xangle.ToFixed(7) + "," +
+                    _Yangle.ToFixed(7) + "," +
+                    _Zangle.ToFixed(7) + "," +
+                    _Wangle.ToFixed(7);
             }
             else
             {
@@ -289,11 +274,11 @@ namespace MapEditingTools
     }
     public static class MyExtensionMethods
     {
-        public static string toFixed(this double number, uint decimals)
+        public static string ToFixed(this double number, uint decimals)
         {
             return number.ToString("N" + decimals);
         }
-        public static string toFixed(this double number, int decimals)
+        public static string ToFixed(this double number, int decimals)
         {
             return number.ToString("N" + decimals);
         }
@@ -310,8 +295,7 @@ namespace MapEditingTools
         List<Object> objects = new List<Object>();
         public CustomMap(string mapScript)
         {
-            mapScript = mapScript.Replace("\r", "");
-            string[] separatedList = Regex.Split(mapScript, "(\n)|(;)");
+            string[] separatedList = Regex.Split(mapScript.Replace("\r", ""), "(\n)|(;)");
 
             for (int i = 0; i < separatedList.Length; i++)
             {
@@ -379,7 +363,7 @@ namespace MapEditingTools
 
         public void Rotate(Quaternion rotation)
         {
-            Point pivot = getMapCenter();
+            Point pivot = GetMapCenter();
 
             for (var i = 0; i < objects.Count(); i++)
             {
@@ -421,7 +405,7 @@ namespace MapEditingTools
         }
         public void Scale(double Scale)
         {
-            Point center = getMapCenter();
+            Point center = GetMapCenter();
 
             for (var i = 0; i < objects.Count(); i++)
             {
@@ -516,7 +500,7 @@ namespace MapEditingTools
             bool mirrorY = axes[1];
             bool mirrorZ = axes[2];
 
-            Point pivot = getMapCenter();
+            Point pivot = GetMapCenter();
 
             if (mirrorX)
             {
@@ -587,37 +571,31 @@ namespace MapEditingTools
         }
 
 
-        public Point getMapCenter()
+        public Point GetMapCenter()
         {
-            double xMax = 0;
-            double xMin = 0;
-            double yMax = 0;
-            double yMin = 0;
-            double zMax = 0;
-            double zMin = 0;
+            double xMax = 0; double yMax = 0; double zMax = 0;
+            double xMin = 0; double yMin = 0; double zMin = 0;
 
             //Go through every object
             for (int i = 0; i < objects.Count(); i++)
             {
-                xMax = objects[i]._Xpos;
-                xMin = objects[i]._Xpos;
-                yMax = objects[i]._Ypos;
-                yMin = objects[i]._Ypos;
-                zMax = objects[i]._Zpos;
-                zMin = objects[i]._Zpos;
-                xMax = Math.Max(xMax, objects[i]._Xpos);
-                xMin = Math.Min(xMin, objects[i]._Xpos);
+                if (!objects[i].IsComment())
+                {
+                    xMax = objects[i]._Xpos; yMax = objects[i]._Ypos; zMax = objects[i]._Zpos;
+                    xMin = objects[i]._Xpos; yMin = objects[i]._Ypos; zMin = objects[i]._Zpos;
 
-                yMax = Math.Max(yMax, objects[i]._Ypos);
-                yMin = Math.Min(yMin, objects[i]._Ypos);
+                    xMax = Math.Max(xMax, objects[i]._Xpos);
+                    xMin = Math.Min(xMin, objects[i]._Xpos);
 
-                zMax = Math.Max(zMax, objects[i]._Zpos);
-                zMin = Math.Min(zMin, objects[i]._Zpos);
+                    yMax = Math.Max(yMax, objects[i]._Ypos);
+                    yMin = Math.Min(yMin, objects[i]._Ypos);
+
+                    zMax = Math.Max(zMax, objects[i]._Zpos);
+                    zMin = Math.Min(zMin, objects[i]._Zpos);
+                }
             }
-            //If there were no objects with a position 
-            //if (xMax == null) return null;
 
-            return new Point((xMax + xMin) / 2.0, (yMax + yMin) / 2.0, (zMax + zMin) / 2.0);
+            return new Point((xMax + xMin) / 2f, (yMax + yMin) / 2f, (zMax + zMin) / 2f);
         }
 
     }

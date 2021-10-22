@@ -214,11 +214,11 @@ namespace MapEditingTools
 
         private void Euler_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Quaternion quaternion = new Quaternion(InputBoxM.GetTextboxNumberA(_EulerX), InputBoxM.GetTextboxNumberA(_EulerY), InputBoxM.GetTextboxNumberA(_EulerZ));
-            _QuatW.Text = quaternion.W.toFixed(7).ToString();
-            _QuatX.Text = quaternion.X.toFixed(7).ToString();
-            _QuatY.Text = quaternion.Y.toFixed(7).ToString();
-            _QuatZ.Text = quaternion.Z.toFixed(7).ToString();
+            Quaternion quaternion = new Quaternion(InputBoxM.GetTextboxNumberB(_EulerX), InputBoxM.GetTextboxNumberB(_EulerY), InputBoxM.GetTextboxNumberB(_EulerZ));
+            _QuatW.Text = quaternion.W.ToFixed(7).ToString();
+            _QuatX.Text = quaternion.X.ToFixed(7).ToString();
+            _QuatY.Text = quaternion.Y.ToFixed(7).ToString();
+            _QuatZ.Text = quaternion.Z.ToFixed(7).ToString();
         }
 
         private void EulerCopy_Click(object sender, RoutedEventArgs e)
